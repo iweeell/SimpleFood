@@ -4,13 +4,21 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean');
+const browserSync = require('browser-sync').create();
 
 
 function scripts() {
-  return src('app/js/*.js')
+  return src([
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/mixitup/dist/mixitup.js',
+    'node_modules/slick-carousel/slick/slick.js',
+    'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
+    'app/js/main.js'
+  ])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('app/js'))
+    .pipe(browserSync.stream())
 }
 
 function styles() {
@@ -19,11 +27,13 @@ function styles() {
     .pipe(concat('style.min.css'))
     .pipe(scss({outputStyle: 'compressed'}))
     .pipe(dest('app/css'))
+    .pipe(browserSync.stream())
 }
 
 function watching() {
   watch(['app/scss/**/*.scss'], styles)
   watch(['app/js/main.js'], scripts)
+  watch(['app/**/*.html']).on('chenche', browserSync.reload)
 }
 
 function cleanDist() {
@@ -41,10 +51,19 @@ function building() {
     .pipe(dest('dist')) 
 }
 
+function browsersync () {
+  browserSync.init ({
+    server: {
+      baseDir: 'app/'
+    }
+  })
+}
+
 exports.styles = styles;
 exports.scripts = scripts;
 exports.watching = watching;
+exports.browsersync = browsersync;
 
 
 exports.build = series(cleanDist, building);
-exports.default = parallel(styles, scripts, watching);
+exports.default = parallel(styles, scripts, browsersync, watching);
