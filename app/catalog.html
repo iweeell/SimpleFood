@@ -70,7 +70,7 @@
           </div>
           <ul class="burger-menu__list">
             <li class="burger-menu__list-item">
-              <a href="#" class="burger-menu__list-link menu__link menu__link--active">
+              <a href="index.html" class="burger-menu__list-link menu__link menu__link--active">
                 Главная
               </a>
             </li>
@@ -158,33 +158,51 @@
           <h2 class="catalog__title title">
             Каталог продуктов
           </h2>
-          <div class="catalog__top-filter">
-            <select name="type" class="catalog__select">
-              <option class="catalog__select-item" value="1">
-                По названию
-              </option>
-              <option class="catalog__select-item" value="2">
-                От дешевого
-              </option>
-              <option class="catalog__select-item" value="3">
-                От дорогого
-              </option>
-            </select>
-            <select name="number" class="catalog__select">
-              <option class="catalog__select-item" value="1">
-                по 12
-              </option>
-              <option class="catalog__select-item" value="2">
-                по 8
-              </option>
-              <option class="catalog__select-item" value="3">
-                по 6
-              </option>
-            </select>
+
+          <div class="catalog__top-inner">
+            <button class="filter-btn" type="button">
+              <svg class="filter-btn-icon" width="28" height="32">
+                <use xlink:href="images/icons.svg#icon-filters"></use>
+              </svg>
+            </button>
+            <div class="catalog__top-filter">
+              <svg class="catalog__select-icon" width="11" height="11">
+                <use xlink:href="images/icons.svg#icon-right"></use>
+              </svg>
+              <select name="type" class="catalog__select">
+                <option class="catalog__select-item" value="1">
+                  По названию
+                </option>
+                <option class="catalog__select-item" value="2">
+                  От дешевого
+                </option>
+                <option class="catalog__select-item" value="3">
+                  От дорогого
+                </option>
+              </select>
+            </div>
+            <div class="catalog__top-filter">
+              <svg class="catalog__select-icon" width="11" height="11">
+                <use xlink:href="images/icons.svg#icon-right"></use>
+              </svg>
+              <select name="number" class="catalog__select">
+                <option class="catalog__select-item" value="1">
+                  по 12
+                </option>
+                <option class="catalog__select-item" value="2">
+                  по 8
+                </option>
+                <option class="catalog__select-item" value="3">
+                  по 6
+                </option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="catalog__inner">
           <div class="catalog__filter">
+            <button class="filter-btn__close">
+            </button>
             <div class="catalog__filter-item">
               <h3 class="catalog__filter-title">
                 Категории

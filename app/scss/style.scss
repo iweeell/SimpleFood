@@ -769,26 +769,61 @@
     margin: 0;
   }
 
-  
+  &__select-icon {
+    width: 11px;
+    height: 11px;
+    transform: rotate(90deg);
+    position: absolute;
+    right: 15px;
+    top: 19px;
+    fill: $gray;
+  }
+
+  &__top-inner {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__top-filter {
+    position: relative;
+  }
 
   &__select {
     font-size: 14px;
     line-height: 1.2;
-    padding: 15px;
-    border-radius: 3px;
-    border: 1px solid $gray;
     appearance: none;
-
-    &::after {
-      content: '';
-      background-image: url('images/icon-select.svg');
-      width: 11px;
-      height: 6px;
-      display: block;
-    }
 
     &:not(:last-child) {
       margin-right: 15px;
+    }
+
+    .jq-selectbox__select {
+      border: 1px solid $gray;
+      border-radius: 5px;
+      background: transparent;
+      font: inherit;
+      color: inherit;
+      text-shadow: none;
+      padding: 15px 41px 15px 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .jq-selectbox__trigger {
+      border: none;
+    }
+
+    .jq-selectbox__dropdown {
+      border: 1px solid $gray;
+    }
+
+    .jq-selectbox li{
+      background-color: $orange-900;
+      color: #fff;
+    }
+
+    .jq-selectbox__trigger-arrow {
+      border: none;
     }
   }
 
@@ -972,7 +1007,12 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    text-align: center;
   }
+}
+
+.filter-btn {
+  display: none;
 }
 
 .promo {
@@ -980,7 +1020,8 @@
 
   &__content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px;
   }
 
   &__item {
