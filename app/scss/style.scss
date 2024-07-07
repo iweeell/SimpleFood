@@ -484,7 +484,7 @@
     }
 
     &-dots {
-      display: flex;
+      display: flex !important;
       gap: 15px;
       justify-content: center;
 
@@ -1013,6 +1013,10 @@
 
 .filter-btn {
   display: none;
+
+  &__close {
+    display: none;
+  }
 }
 
 .promo {
